@@ -1,0 +1,8 @@
+name: 'style(9)-check'
+description: 'FreeBSD style(9) check'
+branding:
+  icon: 'code'
+  color: 'red'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
