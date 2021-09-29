@@ -7,12 +7,11 @@ cd "$GITHUB_WORKSPACE"
 # style(9) applicable files
 # XXX: Add more!
 FILE_SELECTOR="'*.c' '*.h' '*.m'"
-
 FILES_CHANGED="$(git diff-tree --no-commit-id --name-only --diff-filter=ACM -r "$GITHUB_SHA")"
+echo "$FILES_CHANGED" > FILES
+# XXX: grep FILE_SELECTOR
 
-# run checks on changed files
-for FILE in $FILES_CHANGED; do
-	uncrustify -c /uncrustify.cfg -f "${FILE}"
-done
+# Run checks on changed files
+uncrustify -c /uncrustify.cfg -F FILES
 
 exit 0
