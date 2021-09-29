@@ -12,6 +12,9 @@ echo "$FILES_CHANGED" > FILES
 # XXX: grep FILE_SELECTOR
 
 # Run checks on changed files
-uncrustify -c /uncrustify.cfg -F FILES
+uncrustify -c /uncrustify.cfg -f FILES -o XXX.c
+
+# Show diff
+diff -ruN FILES XXX.c
 
 exit 0
