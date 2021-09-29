@@ -12,7 +12,7 @@ FILES_CHANGED="$(git diff-tree --no-commit-id --name-only --diff-filter=ACM -r "
 
 # run checks on changed files
 for FILE in $FILES_CHANGED; do
-	uncrustify -c /uncrustify.cfg --check "${FILE}"
+	uncrustify -c /uncrustify.cfg -f "${FILE}"
 done
 
 exit 0
